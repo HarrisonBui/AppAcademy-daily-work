@@ -18,3 +18,7 @@
 .rates-list {
   padding-top: 10px;
 }
+
+.currency-option:hover {
+  cursor: pointer;
+}
