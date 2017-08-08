@@ -37,3 +37,27 @@ function isPalindrome(str) {
 
   return true;
 }
+
+
+// O(log(n))
+function findCommonAncestor(root, nodeA, nodeB) {
+  var currentNode = root;
+  while true {
+    if (currentNode == nodeA || currentNode == nodeB) {
+      // one is the descendent of the other.
+      return currentNode;
+    }
+
+    var bothOnRight = ((currentNode.value < nodeA.value) &&
+      (currentNode.value < nodeB.value));
+    var bothOnLeft = ((currentNode.value > nodeA.value) &&
+      (currentNode.value > nodeB.value));
+    var onSameSide = bothOnRight || bothOnLeft;
+
+    if (!onSameSide) {
+      return currentNode;
+    }
+
+    currentNode = bothOnRight ? currentNode.right : currentNode.left;
+  }
+}
