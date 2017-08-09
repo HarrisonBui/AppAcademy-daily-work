@@ -80,3 +80,31 @@ function kangaroo(x1, v1, x2, v2) {
 console.log("====Kangaro===");
 console.log(kangaroo(0, 3, 4, 2) === true);
 console.log(kangaroo(0, 2, 5, 3) === false);
+
+
+
+/*
+Lily has a chocolate bar consisting of a row of n squares where each
+square has an integer written on it. She wants to share it with Ron
+for his birthday, which falls on month m and day d. Lily only wants to
+give Ron a piece of chocolate if it contains m consecutive squares
+whose integers sum to d.
+*/
+
+function birthdayChocolate(squares, d, m) {
+  let count = 0;
+  let sum;
+
+  for (let i = 0; i <= squares.length - m + 1; i++) {
+    sum = 0;
+    for (let j=0; j < m; j++) {
+      sum += squares[i + j];
+    }
+    if (sum === d) { count += 1; }
+  }
+  return count;
+}
+
+console.log("===Birthday Chocolate===");
+console.log(birthdayChocolate([1, 2, 1, 3, 2], 3, 2) === 2);
+console.log(birthdayChocolate([1, 1, 1, 1, 1, 1], 3, 2) === 0);
