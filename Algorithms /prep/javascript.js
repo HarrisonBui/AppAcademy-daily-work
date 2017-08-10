@@ -108,3 +108,33 @@ function birthdayChocolate(squares, d, m) {
 console.log("===Birthday Chocolate===");
 console.log(birthdayChocolate([1, 2, 1, 3, 2], 3, 2) === 2);
 console.log(birthdayChocolate([1, 1, 1, 1, 1, 1], 3, 2) === 0);
+
+
+//Duplicate
+var containsDuplicate = function(nums) {
+    var valuesSoFar = Object.create(null);
+    for (var i = 0; i < nums.length; i++) {
+        var value = nums[i];
+        if (value in valueSoFar) {
+            return true;
+        }
+        valuesSoFar[value] = true;
+    }
+    return false;
+};
+
+
+function eliminateDuplicates(arr) {
+  var i,
+      len=arr.length,
+      out=[],
+      obj={};
+
+  for (i=0;i<len;i++) {
+    obj[arr[i]]=0;
+  }
+  for (i in obj) {
+    out.push(i);
+  }
+  return out;
+}
