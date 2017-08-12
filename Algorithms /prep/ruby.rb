@@ -39,3 +39,28 @@ def valid_ip?(str)
   nums = str.split(".").map(&:to_i)
   nums.all? {|num| num >= 0 && num <= 255}
 end
+
+
+def max_number(nums1, nums2)
+  result = []
+  until nums1.empty? || nums2.empty?
+    i = 0
+    while nums1[i] == nums2[i]
+      i += 1 unless nums1[i].nil? || nums2[i].nil?
+    end
+    if nums1[i] && nums2[i]
+      result << (nums1[i] <= nums2[i] ? nums2.shift : nums1.shift)
+    else
+      if nums1[i].nil?
+        result << (nums2[i] > nums1[0] ? nums2.shift : nums1.shift)
+      else
+        result << (nums1[i] > nums2[0] ? nums1.shift : nums2.shift)
+      end
+    end
+  end
+  result.concat(nums1).concat(nums2).join.to_i
+end
+
+p max_number([1,3,5,6,6], [9,1,1]) == 91356611
+p max_number([9,1,1], [1,3,5,6,6]) == 91356611
+p max_number([1,1,1], [1,1,2,1]) == 1121111
