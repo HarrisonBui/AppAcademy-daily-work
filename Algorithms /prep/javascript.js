@@ -189,8 +189,6 @@ L1.deleteNode(7);
 console.log(L1);
 
 
-
-
 //longest consecutive 1's
 var findMaxConsecutiveOnes = function(nums) {
   let ans = 0
@@ -208,4 +206,16 @@ var findMaxConsecutiveOnes = function(nums) {
   }
 
   return ans;
+};
+
+//missing number
+var missingNumber = function(nums) {
+  var hash = [];
+  nums.forEach(function(item) {
+    hash[item] = true;
+  });
+
+  for (var i = 0; ; i++)
+    if (!hash[i])
+      return i;
 };
