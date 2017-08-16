@@ -187,3 +187,25 @@ console.log(L1);
 // Delete  an intermediate node
 L1.deleteNode(7);
 console.log(L1);
+
+
+
+
+//longest consecutive 1's
+var findMaxConsecutiveOnes = function(nums) {
+  let ans = 0
+    , sum = 0;
+
+  nums.push(0);
+
+  for (let item of nums) {
+    if (item)
+      sum += 1;
+    else {
+      ans = Math.max(ans, sum);
+      sum = 0;
+    }
+  }
+
+  return ans;
+};
