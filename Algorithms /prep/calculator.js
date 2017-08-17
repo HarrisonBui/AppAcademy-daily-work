@@ -39,3 +39,49 @@ var calculate = function(s) {
  ans += sign * num;
  return ans;
 };
+
+
+
+Implement a basic calculator to evaluate a simple expression string.
+The expression string contains only non-negative integers, +, -, *, /
+operators and empty spaces . The integer division should truncate toward zero.
+You may assume that the given expression is always valid.
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var calculate = function(s) {
+  s = s.replace(/\s/g, '');
+  var num = 0;
+  var numStack = [];
+  var sym = '+';  // 前一个符号，默认可为 '+'
+
+  for (var i = 0, len = s.length; i < len; i++) {
+    var item = s[i];
+
+    if (~'+-*/'.indexOf(item) || i === len - 1) {
+      (i === len - 1) && (num = num * 10 + (+item));
+
+      if (sym === '-')
+        numStack.push(-num);
+      else if (sym === '+')
+        numStack.push(+num);
+      else if (sym === '*')
+        numStack.push(numStack.pop() * num);
+      else
+        numStack.push(~~(numStack.pop() / num));
+
+      num = 0;
+      sym = item;
+    } else {
+      num = num * 10 + (+item);
+    }
+  }
+
+  var ans = 0;
+  numStack.forEach(function(item) {
+    ans += item;
+  });
+
+  return ans;
+};
