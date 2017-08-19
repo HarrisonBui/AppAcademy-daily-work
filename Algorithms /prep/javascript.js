@@ -240,10 +240,6 @@ var insertionSortList = function(head) {
 };
 
 //first missing possitive
-/**
- * @param {number[]} nums
- * @return {number}
- */
 var firstMissingPositive = function(nums) {
   var hash = [];
   for(var i = 0, len = nums.length; i < len; i++)
@@ -253,4 +249,23 @@ var firstMissingPositive = function(nums) {
   for(var i = 1; ; i++)
     if (!hash[i])
       return i;
+};
+
+//longestPalindrome
+var longestPalindrome = function(s) {
+  let hash = {};
+
+  for (let item of s)
+    hash[item] = ~~hash[item] + 1;
+
+  let exsitsOld = false;
+  let ans = 0;
+
+  for (let key in hash) {
+    let cnt = hash[key];
+    ans += cnt & 1 ? cnt - 1 : cnt;
+    (cnt & 1) && (exsitsOld = true);
+  }
+
+  return ans + exsitsOld;
 };
