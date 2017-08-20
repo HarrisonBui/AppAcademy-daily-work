@@ -288,3 +288,16 @@ var magicalString = function(n) {
 
   return ans;
 };
+
+/*
+Simple Recurrence Problem.
+//To get the ways you are climbing to Step 3, you can either climb from
+Step 2, or Step 1. So if you know the answer that you climb to Step 2 and 1, you can also know the answer to Step 3.
+*/
+var climbStairs = function(n) {
+  var a = [];
+  a[0] = 1, a[1] = 1;
+  for(var i = 2; i <= n; i++)
+    a[i] = a[i - 1] + a[i - 2];
+  return a[n];
+};
