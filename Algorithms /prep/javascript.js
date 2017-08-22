@@ -333,3 +333,11 @@ function A(a, b) {
 
   return ans;
 }
+
+
+//valid number
+var isNumber = function(s) {
+  if (s.trim() === "")
+    return false;
+  return !isNaN(Number(s));
+};
