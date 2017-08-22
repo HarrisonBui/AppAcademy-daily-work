@@ -362,3 +362,25 @@ var isPowerOfFour = function(num) {
   var a = Math.log(num) / Math.log(4);
   return Math.pow(4, Math.floor(a)) === num || Math.pow(4, Math.ceil(a)) === num;
 };
+
+
+//Find the nth digit of the infinite integer sequence 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11
+var findNthDigit = function(n) {
+  return dfs(1, n);
+
+  function dfs(digits, left) {
+    let start = Math.pow(10, digits - 1);
+    let last = Math.pow(10, digits) - 1;
+    let len = last - start + 1;
+    let num = len * digits;
+
+    if (num < left)
+      return dfs(digits + 1, left - num);
+    else {
+      let remainder = left % digits ? left % digits : digits;
+      let rightNumber = Math.ceil(left / digits) - 1 + start;
+
+      return +String(rightNumber)[remainder - 1];
+    }
+  }
+};
