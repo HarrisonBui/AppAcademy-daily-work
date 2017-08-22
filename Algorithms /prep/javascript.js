@@ -341,3 +341,24 @@ var isNumber = function(s) {
     return false;
   return !isNaN(Number(s));
 };
+
+//Power of 2
+var isPowerOfTwo = function(n) {
+  var tmp = ~~(Math.log(n) / Math.log(2));
+  return n === (1 << tmp);
+};
+//Power of 3
+var isPowerOfThree = function(n) {
+  if (!n) return false;
+  var a = Math.log(n) / Math.log(3);
+  return Math.pow(3, Math.floor(a)) === n || Math.pow(3, Math.ceil(a)) === n;
+}
+//Power of 4
+//Given an integer (signed 32 bits), write a function to check whether it is a power of 4.
+var isPowerOfFour = function(num) {
+  if (!num)
+    return false;
+
+  var a = Math.log(num) / Math.log(4);
+  return Math.pow(4, Math.floor(a)) === num || Math.pow(4, Math.ceil(a)) === num;
+};
