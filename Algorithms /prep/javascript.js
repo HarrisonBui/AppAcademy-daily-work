@@ -638,3 +638,27 @@ var searchRange = function(nums, target) {
     return [-1, -1];
   return [idx[0], idx[idx.length - 1]];
 };
+
+
+//first missing positive
+var firstMissingPositive = function(nums) {
+  for(var i = 0; i < nums.length; i++) {
+    move(i);
+  }
+  for(i = 0; i < nums.length; i++) {
+    if(nums[i] !== i + 1) {
+      return i + 1;
+    }
+  }
+  return nums[i - 1] ? nums[i - 1] + 1 : 1;
+
+  function move(i) {
+    var tmp;
+    if(nums[i] > 0 && nums[i] <= nums.length && nums[nums[i] - 1] !== nums[i]) {
+      tmp = nums[nums[i] - 1];
+      nums[nums[i] - 1] = nums[i];
+      nums[i] = tmp;
+      move(i);
+    }
+  }
+};
