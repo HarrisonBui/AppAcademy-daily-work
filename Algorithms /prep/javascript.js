@@ -1,11 +1,11 @@
-//fizzbuzz
+//Fizzbuzz
 for (var i = 1; i <= 100; i++) {
   var f = i % 3 == 0, b = i % 5 == 0;
   console.log(f ? b ? "FizzBuzz" : "Fizz" : b ? "Buzz" : i);
 }
 
 
-//valid palindrome
+//Valid Palindrome
 function isPalindrome(str) {
   var i = 0,
       j = str.length - 1,
@@ -189,7 +189,7 @@ L1.deleteNode(7);
 console.log(L1);
 
 
-//longest consecutive 1's
+//Longest Consecutive 1's
 var findMaxConsecutiveOnes = function(nums) {
   let ans = 0
     , sum = 0;
@@ -208,7 +208,7 @@ var findMaxConsecutiveOnes = function(nums) {
   return ans;
 };
 
-//missing number
+//Missing Number
 var missingNumber = function(nums) {
   var hash = [];
   nums.forEach(function(item) {
@@ -220,7 +220,7 @@ var missingNumber = function(nums) {
       return i;
 };
 
-//intergetSortList
+//Interget Sort List
 var insertionSortList = function(head) {
   var ans = [];
   while (head) {
@@ -239,7 +239,7 @@ var insertionSortList = function(head) {
   return ans[0];
 };
 
-//first missing possitive
+//First Missing Positive
 var firstMissingPositive = function(nums) {
   var hash = [];
   for(var i = 0, len = nums.length; i < len; i++)
@@ -251,7 +251,7 @@ var firstMissingPositive = function(nums) {
       return i;
 };
 
-//longestPalindrome
+//Longest Palindrome
 var longestPalindrome = function(s) {
   let hash = {};
 
@@ -431,10 +431,10 @@ var reorderList = function(head) {
     node = node.next;
   }
 
-  // remove the head node
+  // Remove the head node
   ans.shift();
 
-  // rearrange the node array
+  // Rearrange the Node Array
   var res = [];
   var f = true;
 
@@ -503,7 +503,7 @@ var getRow = function(rowIndex) {
 };
 
 
-//Gray code
+//Gray Code
 var grayCode = function(n) {
   var ans = [];
   for (var i = 0; i < (1 << n); i++)
@@ -511,7 +511,7 @@ var grayCode = function(n) {
   return ans;
 };
 
-//swap nodes in pairs
+//Swap Nodes in Pairs
 var swapPairs = function(head) {
   if (!head)
     return null;
@@ -567,7 +567,7 @@ var longestCommonPrefix = function(strs) {
   return ans;
 };
 
-//reverse integer
+//Reverse Integer
 var reverse = function(x) {
   var minn = - (1 << 30) * 2;
   var maxn = (1 << 30) * 2 - 1;
@@ -586,7 +586,7 @@ var reverse = function(x) {
 };
 
 
-//next Permutation
+//Next Permutation
 var nextPermutation = function(nums) {
   var len = nums.length;
 
@@ -626,7 +626,7 @@ var nextPermutation = function(nums) {
 
 };
 
-//search range
+//Search Range
 var searchRange = function(nums, target) {
   var idx = [];
   nums.forEach(function(item, index, array) {
@@ -640,7 +640,7 @@ var searchRange = function(nums, target) {
 };
 
 
-//first missing positive
+//First Missing Positive
 var firstMissingPositive = function(nums) {
   for(var i = 0; i < nums.length; i++) {
     move(i);
@@ -662,3 +662,25 @@ var firstMissingPositive = function(nums) {
     }
   }
 };
+
+
+//Decimal to Binary
+function decimalToBinary(digit) {
+  if(digit >= 1) {
+    // If digit is not divisible by 2 then recursively return proceeding
+    // binary of the digit minus 1, 1 is added for the leftover 1 digit
+    if (digit % 2) {
+      return decimalToBinary((digit - 1) / 2) + 1;
+    } else {
+      // Recursively return proceeding binary digits
+      return decimalToBinary(digit / 2) + 0;
+    }
+  } else {
+    // Exit condition
+    return '';
+  }
+}
+
+decimalToBinary(3); // 11
+decimalToBinary(8); // 1000
+decimalToBinary(1000); // 1111101000
