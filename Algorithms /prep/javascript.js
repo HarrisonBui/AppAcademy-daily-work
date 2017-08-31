@@ -684,3 +684,20 @@ function decimalToBinary(digit) {
 decimalToBinary(3); // 11
 decimalToBinary(8); // 1000
 decimalToBinary(1000); // 1111101000
+
+
+//Largest Number
+var largestNumber = function(nums) {
+  nums.sort(function(a, b) {
+    return (b + '' + a) - (a + '' + b);
+  });
+
+  var ans = nums.join('');
+
+  for (var i = 0; i < ans.length - 1; i++) {
+    if (ans[i] !== '0')
+      break;
+  }
+
+  return ans.substring(i);
+};
