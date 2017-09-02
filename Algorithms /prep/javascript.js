@@ -744,3 +744,23 @@ var largestNumber = function(nums) {
 
   return ans.substring(i);
 };
+
+
+//Count Primes
+var countPrimes = function(n) {
+  var hash = new Array(n)
+    , a = Math.sqrt(n);
+
+  for (var i = 2; i <= a; i++) {
+    if (!hash[i])
+      for (var j = i * i; j < n; j += i)
+        hash[j] = true;
+  }
+
+  var ans = 0;
+  for (var i = 2; i < n; i++)
+    if (!hash[i])
+      ans ++;
+
+  return ans;
+};
