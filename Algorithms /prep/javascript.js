@@ -780,3 +780,31 @@ var licenseKeyFormatting = function(S, K) {
     return format(chars, K, '-').toUpperCase();
 
 };
+
+
+//Total Hamming Distance
+var totalHammingDistance = function(nums) {
+  let one = []
+    , len = nums.length;
+
+  nums.forEach(function(item) {
+    let index = 0;
+    while (item) {
+      if (item & 1)
+        one[index] = ~~one[index] + 1;
+
+      item >>= 1;
+      index++;
+    }
+  });
+
+  let ans = 0;
+  for (let i = 0, oneLen = one.length; i < oneLen; i++) {
+    let oneNum = ~~one[i]
+      , zeroNum = len - oneNum;
+
+    ans += oneNum * zeroNum;
+  }
+
+  return ans;
+};
