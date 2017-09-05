@@ -808,3 +808,37 @@ var totalHammingDistance = function(nums) {
 
   return ans;
 };
+
+
+//Island Perimeter
+var islandPerimeter = function(grid) {
+  if (grid.length === 0)
+    return 0;
+
+  let n = grid.length
+    , m = grid[0].length
+    , ans = 0;
+
+  const dir = [[1, 0], [-1, 0], [0, 1], [0, -1]];
+
+  for (let i = 0; i < n; i++)
+    for (let j = 0; j < m; j++) {
+      if (!grid[i][j])
+        continue;
+
+      for (let l = 0; l < 4; l++) {
+        let neighborCellX = i + dir[l][0];
+        let neighborCellY = j + dir[l][1];
+
+        if (neighborCellX < 0 || neighborCellX >= n
+            || neighborCellY < 0 || neighborCellY >= m) {
+          ans += 1;
+          continue;
+        }
+
+        ans += !grid[neighborCellX][neighborCellY];
+      }
+    }
+
+  return ans;
+};
