@@ -30,7 +30,7 @@ public class Solution {
 }
 
 
-//Third Maximum Number
+//Third Maximum Number 
 public class Solution {
     public int thirdMax(int[] nums) {
         int index = 0;
