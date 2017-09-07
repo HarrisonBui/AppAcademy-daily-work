@@ -842,3 +842,23 @@ var islandPerimeter = function(grid) {
 
   return ans;
 };
+
+//4Sum 2
+var fourSumCount = function(A, B, C, D) {
+  let p = new Map();
+  for (let i = 0, lenA = A.length; i < lenA; i++)
+    for (let j = 0, lenB = B.length; j < lenB; j++) {
+      let sum = A[i] + B[j];
+      let count = ~~p.get(sum);
+      p.set(sum, count + 1);
+    }
+
+  let ans = 0;
+  for (let i = 0, lenC = C.length; i < lenC; i++)
+    for (let j = 0, lenD = D.length; j < lenD; j++) {
+      let sum = C[i] + D[j];
+      ans += ~~p.get(-sum);
+    }
+
+  return ans;
+};
