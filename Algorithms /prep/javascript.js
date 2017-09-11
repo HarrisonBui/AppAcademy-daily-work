@@ -960,3 +960,24 @@ var readBinaryWatch = function(num) {
   }
 
   return Array.from(new Set(ans));
+
+
+//Single Number 3
+var singleNumber = function(nums) {
+  var ans = []
+    , hash = [];
+
+  nums.forEach(function(item) {
+    if (!hash[item])
+      hash[item] = 1;
+    else
+      hash[item]++;
+  });
+
+  nums.forEach(function(item) {
+    if (hash[item] === 1)
+      ans.push(item);
+  });
+
+  return ans;
+};
