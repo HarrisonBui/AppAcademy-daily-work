@@ -981,3 +981,20 @@ var singleNumber = function(nums) {
 
   return ans;
 };
+
+
+//Palindrome Linked List
+var isPalindrome = function(head) {
+  var ans = [];
+  while (head) {
+    var tmp = head.val;
+    ans.push(tmp);
+    head = head.next;
+  }
+
+  for(var i = 0, len = ans.length; i < len; i++)
+    if (ans[i] !== ans[len - 1 - i])
+      return false;
+
+  return true;
+};
