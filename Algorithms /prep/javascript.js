@@ -100,6 +100,22 @@ var shortestPalindrome = function(s) {
   return str;
 };
 
+//Palindrome Linked List
+var isPalindrome = function(head) {
+  var ans = [];
+  while (head) {
+    var tmp = head.val;
+    ans.push(tmp);
+    head = head.next;
+  }
+
+  for(var i = 0, len = ans.length; i < len; i++)
+    if (ans[i] !== ans[len - 1 - i])
+      return false;
+
+  return true;
+};
+
 // O(log(n))
 function findCommonAncestor(root, nodeA, nodeB) {
   var currentNode = root;
@@ -983,18 +999,23 @@ var singleNumber = function(nums) {
 };
 
 
-//Palindrome Linked List
-var isPalindrome = function(head) {
-  var ans = [];
-  while (head) {
-    var tmp = head.val;
-    ans.push(tmp);
-    head = head.next;
+//Happy Number
+function add(n) {
+  var ans = 0;
+  while(n) {
+    ans += (n % 10) * (n % 10);
+    n /= 10;
+    n = parseInt(n.toString());
   }
+  return ans;
+}
 
-  for(var i = 0, len = ans.length; i < len; i++)
-    if (ans[i] !== ans[len - 1 - i])
-      return false;
-
-  return true;
+var isHappy = function(n) {
+  hash = [];
+  while(n) {
+    if (n === 1) return true;
+    if (hash[n]) return false;
+    hash[n] = true;
+    n = add(n);
+  }
 };
