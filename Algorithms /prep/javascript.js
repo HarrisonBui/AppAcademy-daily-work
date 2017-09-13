@@ -297,7 +297,29 @@ var missingNumber = function(nums) {
       return i;
 };
 
-//Interget Sort List
+//Sort List
+var sortList = function(head) {
+  if (head === null)
+    return null;
+
+  var tmp = [];
+  while (head) {
+    var node = new ListNode(head.val);
+    tmp.push(node);
+    head = head.next;
+  }
+
+  tmp.sort(function(a, b) {
+    return a.val - b.val;
+  });
+
+  for (var i = 0, len = tmp.length; i < len - 1; i++)
+    tmp[i].next = tmp[i + 1];
+
+  return tmp[0];
+};
+
+//Interger Sort List
 var insertionSortList = function(head) {
   var ans = [];
   while (head) {
