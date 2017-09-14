@@ -1041,3 +1041,13 @@ var isHappy = function(n) {
     n = add(n);
   }
 };
+
+
+//Search a 2D Matrix
+var searchMatrix = function(matrix, target) {
+  for (var i = 0; i < matrix.length; i++)
+    for (var j = 0; j < matrix[i].length; j++)
+      if (matrix[i][j] === target) return true;
+
+  return false;
+};
