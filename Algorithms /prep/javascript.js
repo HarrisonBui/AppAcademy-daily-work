@@ -1051,3 +1051,14 @@ var searchMatrix = function(matrix, target) {
 
   return false;
 };
+
+//Rotate Array
+var rotate = function(nums, k) {
+  k %= nums.length;
+  var tmp = [];
+  if (k)
+    tmp = nums.slice(-k);
+  nums.splice(-k, k);
+
+  Array.prototype.unshift.apply(nums, tmp);
+};
