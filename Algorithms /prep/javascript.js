@@ -1123,3 +1123,10 @@ var wordPattern = function(pattern, str) {
 
   return true;
 };
+
+
+//Bulb Switcher
+var bulbSwitch = function(n) {
+  var ans = -1 + Math.sqrt(1 + n);
+  return Math.ceil(ans);
+};
