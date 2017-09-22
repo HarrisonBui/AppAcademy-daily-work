@@ -1130,3 +1130,28 @@ var bulbSwitch = function(n) {
   var ans = -1 + Math.sqrt(1 + n);
   return Math.ceil(ans);
 };
+
+
+//Interger break
+var integerBreak = function(n) {
+  if (n === 2)
+    return 1;
+
+  if (n === 3)
+    return 2;
+
+  var dp = [];
+
+  dp[0] = 1;
+  dp[1] = 1;
+
+  for (var i = 2; i <= n; i++)
+    dp[i] = -1;
+
+  for (var i = 2; i <= n; i++)
+    for (var j = 0; j < i; j++) {
+      dp[i] = Math.max(dp[i], dp[j] * (i - j));
+    }
+
+  return dp[n];
+};
