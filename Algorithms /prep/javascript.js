@@ -1176,3 +1176,28 @@ var isPerfectSquare = function(num) {
 
   return false;
 };
+
+
+//Sort Characters By Frequency
+var frequencySort = function(s) {
+  let hash = {};
+  for (let item of s)
+    hash[item] = ~~hash[item] + 1;
+
+  let arr = [];
+  Object.keys(hash).forEach(function(item) {
+    arr.push({item: item, count: hash[item]});
+  });
+
+  arr.sort(function(a, b) {
+    return b.count - a.count;
+  });
+
+  let ans = '';
+  arr.forEach(function(item) {
+    while (item.count--)
+      ans += item.item;
+  });
+
+  return ans;
+};
