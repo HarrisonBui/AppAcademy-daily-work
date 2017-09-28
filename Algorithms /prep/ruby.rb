@@ -64,3 +64,27 @@ end
 p max_number([1,3,5,6,6], [9,1,1]) == 91356611
 p max_number([9,1,1], [1,3,5,6,6]) == 91356611
 p max_number([1,1,1], [1,1,2,1]) == 1121111
+
+
+#Make Change recursive solution
+def make_change(target, coins = [25, 10, 5, 1])
+  return [] if target == 0
+  return nil if coins.none? { |coin| coin <= target }
+
+  coins = coins.sort.reverse
+  best_change = nil
+
+  coins.each_with_index do |coin, index|
+    next if coin > target
+    remainder = target - coin
+    best_remainder = make_change(remainder, coins.drop(index))
+    next if best_remainder.nil?
+    this_change = [coin] + best_remainder
+    if (best_change.nil? || (this_change.count < best_change.count))
+      best_change = this_change
+    end
+  end
+
+  return best_change if best_change.nil?
+  best_change.count
+end
