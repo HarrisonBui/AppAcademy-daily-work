@@ -1381,10 +1381,8 @@ var addTwoNumbers = function(l1, l2) {
   while(l1 || l2) {
     var a = l1 ? l1.val : 0
       , b = l2 ? l2.val : 0;
-
     var sum = a + b + add;
     add = ~~(sum / 10);
-
     var node = new ListNode(sum % 10);
 
     if (!ans)
@@ -1393,7 +1391,6 @@ var addTwoNumbers = function(l1, l2) {
       head.next = node;
       head = node;
     }
-
     if (l1)
       l1 = l1.next;
     if (l2)
@@ -1407,4 +1404,49 @@ var addTwoNumbers = function(l1, l2) {
   }
 
   return ans;
+};
+
+
+//Add Two Numbers 2
+var addTwoNumbers = function(l1, l2) {
+  let a = []
+    , b = []
+    , newL1 = l1
+    , newL2 = l2;
+
+  while (newL1) {
+    a.push(newL1.val);
+    newL1 = newL1.next;
+  }
+  while (newL2) {
+    b.push(newL2.val);
+    newL2 = newL2.next;
+  }
+
+  a.reverse();
+  b.reverse();
+
+  let ans = [];
+  let add = 0;
+
+  while (a.length || b.length) {
+    let c = a.length ? a.shift() : 0;
+    let d = b.length ? b.shift() : 0;
+    let sum = c + d + add;
+
+    ans.push(sum % 10);
+    add = ~~(sum / 10);
+  }
+
+  add && (ans.push(add));
+  ans.reverse();
+
+  let ret = [];
+
+  for (let i = 0, len = ans.length; i < len; i++)
+    ret[i] = new ListNode(ans[i]);
+  for (let i = 0, len = ans.length; i < len - 1; i++)
+    ret[i].next = ret[i + 1];
+
+  return ret[0];
 };
