@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>CSS + JS Clock</title>
+  </head>
+  <body>
+    <div class="clock">
+      <div class="clock-face">
+          <div class="hand hour-hand"></div>
+          <div class="hand minute-hand"></div>
+          <div class="hand second-hand"></div>
+      </div>
+    </div>
+
+    <style>
+      html {
+        background:#018DED url(http://images.all-free-download.com/images/graphicthumb/red_fantasy_background_stock_photo_169466.jpg);
+        background-size:cover;
+        text-align:center;
+        font-size: 10px;
+      }
+
+      body {
+        margin: 0;
+        font-size: 2rem;
+        display: flex;
+        flex: 1;
+        min-height: 100vh;
+        align-items: center;
+      }
+
+      .clock {
+        width: 30rem;
+        height: 30rem;
+        border: 20px solid white;
+        border-radius: 50%;
+        margin: 50px auto;
+        position: relative;
+        padding: 2rem;
+      }
+
+      .clock-face {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+
+      .hand {
+        position: absolute;
+        left: 50%;
+        bottom: 50%;
+        height: 50%;
+        transition: transform .05s cubic-bezier(0, 2, .5, 1);
+        transform-origin: 50% 100%;
+      }
+
+      .hand::before {
+        content: '';
+        display: block;
+        position: relative;
+        bottom: 0;
+        border-radius: 42.5%;
+        border: 3px solid black;
+        height: 100%;
+      }
+
+      .hour-hand {
+        height: 36.5%;
+      }
+
+      .second-hand::before {
+        border: 2px solid white;
+      }
+    </style>
+
+    <script>
+      const secondHand = document.querySelector('.second-hand');
+      const minuteHand = document.querySelector('.minute-hand');
+      const hourHand = document.querySelector('.hour-hand');
+
+      function setHand(hand, degrees) {
+        hand.style.transform = `rotate(${degrees}deg)`;
+      }
+
+      setInterval( () => {
+        const date = new Date();
+
+        setHand( hourHand, 30 * date.getHours());
+        setHand( minuteHand, 6 * date.getMinutes());
+        setHand( secondHand, 6 * date.getSeconds());
+      }, 1000);
+
+    </script>
+  </body>
+</html>
