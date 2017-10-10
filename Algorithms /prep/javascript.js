@@ -1558,3 +1558,16 @@ var firstDuplicate = function(arr) {
 
   return -1
 }
+
+ //better solution
+function firstDuplicate(a) {
+  var x = {};
+
+  for(let i=0; i<a.length;i++)
+      if(x.hasOwnProperty(a[i]))
+          return a[i];
+      else
+          x[a[i]]="exist";
+
+  return -1;
+}
