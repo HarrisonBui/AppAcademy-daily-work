@@ -1571,3 +1571,17 @@ function firstDuplicate(a) {
 
   return -1;
 }
+
+
+//First Not Repeating Character
+function firstNotRepeatingCharacter(string) {
+  var arr = string.split("");
+
+  for(var i = 0; i < arr.length; i++) {
+    if(arr.indexOf(arr[i]) == arr.lastIndexOf(arr[i])) {
+      return arr[i];
+    }
+  }
+
+  return "_";
+}
