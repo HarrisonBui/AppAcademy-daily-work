@@ -1530,7 +1530,7 @@ var solution = function(isBadVersion) {
 };
 
 
-//Container with Most Water 
+//Container with Most Water
 var maxArea = function(height) {
     var maxarea = 0, l = 0, r = height.length -1;
 
@@ -1546,3 +1546,15 @@ var maxArea = function(height) {
 
     return maxarea;
 };
+
+
+//First Duplicate
+var firstDuplicate = function(arr) {
+  for (i of arr) {
+    let posi = Math.abs(i) - 1
+    if (a[posi] < 0) return posi + 1
+    a[posi] = a[posi] * -1
+  }
+
+  return -1
+}
