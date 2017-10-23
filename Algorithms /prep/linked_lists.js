@@ -11,3 +11,20 @@ function removeKFromList(l,k) {
     return (l.value === k) ? l.next : l
   }
 }
+
+
+function isListPalindrome(l) {
+  if (!l) {
+    return true;
+  }
+
+  let arr = [];
+
+  while (l) {
+    arr.push(l.value);
+
+    l = l.next
+  }
+
+  return (arr.toString() == arr.reverse().toString());
+}
