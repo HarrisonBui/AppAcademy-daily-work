@@ -14,10 +14,6 @@ function removeKFromList(l,k) {
 
 
 function isListPalindrome(l) {
-  if (!l) {
-    return true;
-  }
-
   let arr = [];
 
   while (l) {

@@ -1659,3 +1659,13 @@ var findRelativeRanks = function(nums) {
 
   return ans;
 };
+
+//Move Zeroes to the End
+function moveZeroes(nums) {
+  for (let i = nums.length; i--;) {
+    if (!nums[i]) {
+      nums.splice(i, 1);
+      nums.push(0);
+    }
+  }
+};
