@@ -1,0 +1,33 @@
+.badge {
+  background: black;
+  border-radius: 50%;
+  display: inline;
+  font-size: 14px;
+  padding: 1px 6px;
+}
+
+li:hover .badge {
+  background: #f00;
+}
+
+.header-notifications {
+  background: grey;
+  color: black;
+  display: none;
+  font-size: 14px;
+  overflow: hidden;
+  position: absolute;
+  border: 1px solid #cee;
+}
+
+.header-notifications li:hover {
+  background: #ccc;
+}
+
+.header-notifications li {
+  border-top: 1px solid black;
+}
+
+li:hover .header-notifications {
+  display: block;
+}
