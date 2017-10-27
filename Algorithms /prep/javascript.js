@@ -1703,3 +1703,17 @@ var findSubsequences = function(nums) {
 
   return ans;
 };
+
+
+//Covert To Title
+function convertToTitle(num) {
+  let result = "";
+
+  while (num) {
+    let code = String.fromCharCode((num - 1) % 26 + "A".charCodeAt());
+    num = Math.floor((num - 1)/26);
+    result = result + code;
+  }
+
+  return result;
+}
