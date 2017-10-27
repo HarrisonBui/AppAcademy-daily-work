@@ -10,8 +10,13 @@ li:hover .badge {
   background: #f00;
 }
 
+.header {
+  position: relative;
+  z-index: 1;
+}
+
 .header-notifications {
-  background: grey;
+  background: white;
   color: black;
   display: none;
   font-size: 14px;
