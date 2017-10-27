@@ -1,0 +1,28 @@
+body {
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+.header {
+  display: block;
+  padding: 10px 20px;
+}
+
+.header-nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-logo {
+
+}
+
+.header-list {
+  display: flex;
+  padding-right: 50px;
+}
+
+.header-list li {
+  justify-content: space-between;
+}

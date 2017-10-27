@@ -1,0 +1,58 @@
+function minWindow(s, t) {
+    if(t.length > s.length)
+        return "";
+    var result = "";
+
+    //character counter for t
+    var target = {};
+    for(var i=0; i<t.length; i++){
+        var c = t.charAt(i);
+        if(target[c]!=null){
+            target[c] = target[c]+1;
+        }else{
+            target[c] = 1;
+        }
+    }
+
+    // character counter for s
+    var map = {};
+    var left = 0;
+    var minLen = s.length+1;
+
+    var count = 0; // the total of mapped characters
+
+    for(var i=0; i<s.length; i++){
+        var c = s.charAt(i);
+
+        if(target[c]!=null){
+            if(map[c]!=null){
+                if(map[c]<target[c]){
+                    count++;
+                }
+                map[c] = map[c]+1;
+            }else{
+                map[c] = 1;
+                count++;
+            }
+        }
+
+        if(count == t.length){
+            var sc = s.charAt(left);
+            while ((map[sc]==null) || map[sc] > target[sc]) {
+                if (map[sc]!=null && map[sc] > target[sc])
+                    map[sc] = map[sc] - 1;
+                left++;
+                sc = s.charAt(left);
+            }
+
+            if (i - left + 1 < minLen) {
+                result = s.substring(left, i + 1);
+                minLen = i - left + 1;
+            }
+        }
+    }
+
+    return result;
+}
+
+console.log(minWindow("xyyzyzyx", "xyz"));
