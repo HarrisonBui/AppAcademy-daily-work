@@ -1,26 +1,49 @@
 body {
-  font-family: inherit;
-  font-weight: inherit;
-  font-size: inherit;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  background: white;
 }
 
 .header {
+  background: red;
+  color: white;
+  border-bottom: 1px solid white;
+}
+
+.header a {
   display: block;
   padding: 10px 20px;
 }
 
 .header-nav {
+  border-left: 1px solid white;
+  border-right: 1px solid white;
   display: flex;
   justify-content: space-between;
+  margin: 0 auto;
+  width: 900px;
 }
 
 .header-logo {
+  border-right: 1px solid white;
+  font-weight: 700;
+}
 
+.header-logo:hover {
+  background: black;
 }
 
 .header-list {
   display: flex;
-  padding-right: 50px;
+}
+
+.header-list > li {
+  border-left: 1px solid white;
+}
+
+.header-list li:hover {
+  background: black;
 }
 
 .header-list li {
