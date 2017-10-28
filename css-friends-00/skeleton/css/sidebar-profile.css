@@ -1,0 +1,25 @@
+.profile-picture {
+  background: #000;
+  border: 1px solid #000;
+  border-radius: 5px;
+  display: block;
+  margin-top: -120px;
+  position: relative;
+}
+
+.profile-info h2 {
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.profile-info{
+  margin: 20px 0;
+}
+
+.profile-info p{
+  margin: 20px 0;
+}
+
+.profile-nav li {
+
+}
