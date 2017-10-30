@@ -1717,3 +1717,25 @@ function convertToTitle(num) {
 
   return result;
 }
+
+
+//Longest Win Streak Given a Character
+function longestStreak(str, chr) {
+  let longest = 0;
+  let current = 0;
+  let arr = str.split("");
+
+  for(let i = 0; i < arr.length; i++) {
+    if(arr[i] === chr) {
+      current += 1;
+
+      if(current > longest) {
+        longest = current;
+      }
+    }else {
+      current = 0;
+    }
+  }
+
+  return longest;
+}
