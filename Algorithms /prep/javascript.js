@@ -116,22 +116,6 @@ var isPalindrome = function(head) {
   return true;
 };
 
-//Palindrome linked list
-var isPalindrome = function(head) {
-  var ans = [];
-  while (head) {
-    var tmp = head.val;
-    ans.push(tmp);
-    head = head.next;
-  }
-
-  for(var i = 0, len = ans.length; i < len; i++)
-    if (ans[i] !== ans[len - 1 - i])
-      return false;
-
-  return true;
-};
-
 // O(log(n))
 function findCommonAncestor(root, nodeA, nodeB) {
   var currentNode = root;
@@ -1739,3 +1723,25 @@ function longestStreak(str, chr) {
 
   return longest;
 }
+
+
+//Coin Change
+var coinChange = function(coins, amount) {
+  var ans = [];
+  ans[0] = 0;
+
+  for (var i = 0, len = coins.length; i < len; i++) {
+    var item = coins[i];
+    for (var j = 0; j + item <= amount; j++) {
+      if (ans[j] === undefined)
+        continue;
+      if (ans[j + item] === undefined)
+        ans[j + item] = ans[j] + 1;
+      else
+        ans[j + item] = Math.min(ans[j + item], ans[j] + 1);
+    }
+
+  }
+
+  return ans[amount] === undefined ? -1 : ans[amount];
+};
