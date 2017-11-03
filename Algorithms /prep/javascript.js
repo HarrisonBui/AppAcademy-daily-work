@@ -1745,3 +1745,16 @@ var coinChange = function(coins, amount) {
 
   return ans[amount] === undefined ? -1 : ans[amount];
 };
+
+
+//Majority Element
+var majorityElement = function(nums) {
+  var hash = [];
+  for(var i = 0, len = nums.length; i < len; i++) {
+    if (!hash[nums[i]]) hash[nums[i]] = 1;
+    else hash[nums[i]]++;
+
+    if (hash[nums[i]] > len / 2)
+      return nums[i];
+  }
+};
