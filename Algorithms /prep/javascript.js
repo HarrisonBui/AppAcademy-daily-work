@@ -1758,3 +1758,36 @@ var majorityElement = function(nums) {
       return nums[i];
   }
 };
+
+
+//Grouping Dishes -codefights
+function groupingDishes(dishes) {
+  let ingredients = {},
+      groups = [],
+      dish, i, ingredient;
+
+  for (dish of dishes) {
+    for (i = 1; ingredient = dish[i]; i++) {
+      if (ingredients[ingredient]) {
+        ingredients[ingredient].push(dish[0]);
+      }else {
+        ingredients [ingredient] = [dish[0]];
+      }
+    }
+  }
+
+  for (i in ingredients) {
+    if (ingredients[i].length > 1) {
+      groups.push([i, ...ingredients[i].sort()]);
+    }
+  }
+
+  return groups.sort((a, b) => a[0] < b[0] ? -1 : a[0] > b[0]);
+}
+
+// let dishes = [["Salad", "Tomato", "Cucumber", "Salad", "Sauce"],
+//           ["Pizza", "Tomato", "Sausage", "Sauce", "Dough"],
+//           ["Quesadilla", "Chicken", "Cheese", "Sauce"],
+//           ["Sandwich", "Salad", "Bread", "Tomato", "Cheese"]]
+//
+// console.log(groupingDishes(dishes));
