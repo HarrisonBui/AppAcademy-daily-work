@@ -1844,6 +1844,7 @@ var findPeakElement = function(nums) {
 };
 
 
+//Pair Sum using a Hash
 let hashMapTwoSum = (array, sum) => {
   let hashMap = {},
       results = []
@@ -1858,3 +1859,15 @@ let hashMapTwoSum = (array, sum) => {
 
   return results
 }
+
+//JumpinJack
+def jumpingJack(steps, forbidden_step)
+  max_steps = (steps * (steps + 1)) / 2
+
+  stepVerifier(forbidden_step) ? max_steps : (max_steps - 1)
+end
+
+def stepVerifier(forbidden_step)
+  n = (-1 + Math.sqrt(1 + 8 * forbidden_step)) / 2.0
+  n % 1 == 0
+end
