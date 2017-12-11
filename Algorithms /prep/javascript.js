@@ -1871,3 +1871,16 @@ def stepVerifier(forbidden_step)
   n = (-1 + Math.sqrt(1 + 8 * forbidden_step)) / 2.0
   n % 1 == 0
 end
+
+//Intersection between two linked list
+var getIntersectionNode = function(headA, headB) {
+    let nodeA = headA;
+    let nodeB = headB;
+
+    while (nodeA !== nodeB) {
+        nodeA = (nodeA === null) ? headB : nodeA.next;
+        nodeB = (nodeB === null) ? headA : nodeB.next;
+    }
+
+    return nodeA;
+};
