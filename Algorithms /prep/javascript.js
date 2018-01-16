@@ -1884,3 +1884,36 @@ var getIntersectionNode = function(headA, headB) {
 
     return nodeA;
 };
+
+//Average of levels in a binary tree
+var averageOfLevels = function(root) {
+  root.level = 0
+  let q = [root]
+  let ans = []
+  let [sum, num, curLevel] = [0, 0, 0]
+
+  while (q.length) {
+    let item = q.shift()
+    if (item.level === curLevel) {
+      sum += item.val
+      num += 1
+    } else {
+      ans.push(sum / num)
+      curLevel += 1
+      sum = item.val
+      num = 1
+    }
+
+    if (item.left) {
+      item.left.level = item.level + 1
+      q.push(item.left)
+    }
+    if (item.right) {
+      item.right.level = item.level + 1
+      q.push(item.right)
+    }
+  }
+
+  ans.push(sum / num)
+  return ans
+};
