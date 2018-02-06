@@ -1917,3 +1917,17 @@ var averageOfLevels = function(root) {
   ans.push(sum / num)
   return ans
 };
+
+//Exponent
+function exponent(base, power) {
+    let num = 1;
+    for(let i = 0; i < Math.abs(power); i++){
+        num = num * base;
+    }
+
+    if(power < 0){
+        num = 1 / num;
+    }
+
+    return num;
+}
