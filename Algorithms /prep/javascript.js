@@ -1995,11 +1995,37 @@ let sortedArrayToBST = function(nums) {
     if (start > end)
       return null;
 
-    var mid = (start + end) >> 1;
+    var mid = (start + end) >> 1;m .
     var node = new TreeNode(nums[mid]);
     node.left = dfs(start, mid - 1);
     node.right = dfs(mid + 1, end);
 
     return node;
   }
+};
+
+//Binary tree preordered traversal
+var preorderTraversal = function(root) {
+    var array = [];
+    var ans = [];
+    var cur = root;
+
+    if(root === null)
+        return [];
+
+    array.push(cur);
+    do{
+        if(cur !== null)
+            ans.push(cur.val);
+
+        if(cur.right !== null)
+            array.push(cur.right)
+
+        if(cur.left !== null)
+            array.push(cur.left)
+
+        cur = array.pop();
+    }while(array.length > 0)
+
+    return ans;
 };
