@@ -2010,7 +2010,7 @@ var preorderTraversal = function(root) {
     var ans = [];
     var cur = root;
 
-    if(root === null)
+    if(root === null)''
         return [];
 
     array.push(cur);
@@ -2028,4 +2028,24 @@ var preorderTraversal = function(root) {
     }while(array.length > 0)
 
     return ans;
+};
+
+//Binary tree level order traversal
+let levelOrder = function(root){
+    let levelNodes = [root];
+    let resultArray = [];
+    if(root == null) return resultArray;
+
+    while (levelNodes.length > 0) {
+        resultArray.push(levelNodes.map(el => {if(el) return el.val;}));
+
+        let nextLevelNodes = [];
+        for(let node of levelNodes){
+            if(node && node.left) nextLevelNodes.push(node.left);
+            if(node && node.right) nextLevelNodes.push(node.right);
+        }
+
+        levelNodes = nextLevelNodes;
+    }
+    return resultArray;
 };
